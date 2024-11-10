@@ -43,4 +43,14 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <!-- Unit tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.0</version> <!-- Or the latest version -->
+            </plugin>
+        </plugins>
+    </build>
 </project>
