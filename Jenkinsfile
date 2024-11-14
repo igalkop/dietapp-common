@@ -1,10 +1,14 @@
 pipeline {
     agent any
 
+    environment {
+            REVISION = versionNumberString: "${BUILD_NUMBER}"
+        }
+
     stages {
         stage('Build') {
             steps {
-                bat 'mvn clean compile -Drevision=${BUILDS_ALL_TIME}'
+                bat 'mvn clean compile -Drevision=$REVISION'
             }
         }
 
