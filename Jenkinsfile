@@ -14,7 +14,7 @@ pipeline {
                     bat "mvn versions:set-property -Dproperty=revision -DnewVersion=${REVISION}"
                 }
 
-                bat 'mvn clean install -Drevision=$REVISION'
+                bat 'mvn clean pacakge'
 //                 bat 'echo ${REVISION}'
             }
         }
