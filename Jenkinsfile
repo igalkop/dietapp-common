@@ -34,6 +34,12 @@ pipeline {
             steps {
                 bat 'mvn install -DskipTests'
             }
+            post {
+            // If the maven build succeeded, archive the JUnit test reports for display in the Jenkins web UI
+                success {
+                    junit 'target/surefire-reports/**/*.xml'
+                }
+            }
         }
     }
 }
