@@ -16,19 +16,19 @@ pipeline {
                 }
             }
         }
-//         stage('Build') {
-//             steps {
-//                 bat 'mvn clean compile -DskipTests'
-//             }
-//         }
-//
-//         stage('Test') {
-//             steps {
-//                 bat 'mvn test'
-//             }
-//         }
+        stage('Build') {
+            steps {
+                bat 'mvn clean compile -DskipTests'
+            }
+        }
 
-        stage('Publish') {
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+
+        stage('Publish Locally') {
             steps {
                 bat 'mvn install'
             }
