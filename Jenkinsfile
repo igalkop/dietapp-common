@@ -28,6 +28,7 @@ pipeline {
             }
         }
 
+
         stage('Publish Locally') {
             steps {
                 bat 'mvn install -DskipTests'
