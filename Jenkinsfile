@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'mvn clean compile -Drevision=$REVISION'
-                bat 'echo $REVISION'
+                bat 'echo ${REVISION}'
             }
         }
 
