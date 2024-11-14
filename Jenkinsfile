@@ -7,28 +7,31 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            steps {
+
+        stage('Set Version') {
+            steps{
                 // Update the revision property in pom.xml
                 script {
                     bat "mvn versions:set-property -Dproperty=revision -DnewVersion=${REVISION}"
                 }
-
-                bat 'mvn clean package'
-//                 bat 'echo ${REVISION}'
             }
         }
-
+//         stage('Build') {
+//             steps {
+//                 bat 'mvn clean compile -DskipTests'
+//             }
+//         }
+//
 //         stage('Test') {
 //             steps {
 //                 bat 'mvn test'
 //             }
 //         }
 
-//         stage('Publish') {
-//             steps {
-//                 bat 'mvn install -Drevision=$REVISION'
-//             }
-//         }
+        stage('Publish') {
+            steps {
+                bat 'mvn install'
+            }
+        }
     }
 }
