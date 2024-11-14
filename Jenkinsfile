@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'mvn clean compile -Drevision=$REVISION'
+                echo $REVISION
             }
         }
 
@@ -18,10 +19,10 @@ pipeline {
 //             }
 //         }
 
-        stage('Publish') {
-            steps {
-                bat 'mvn install -Drevision=$REVISION'
-            }
-        }
+//         stage('Publish') {
+//             steps {
+//                 bat 'mvn install -Drevision=$REVISION'
+//             }
+//         }
     }
 }
