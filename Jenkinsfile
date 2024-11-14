@@ -12,9 +12,15 @@ pipeline {
             }
         }
 
-        stage('Test') {
+//         stage('Test') {
+//             steps {
+//                 bat 'mvn test'
+//             }
+//         }
+
+        stage('Publish') {
             steps {
-                bat 'mvn test'
+                bat 'mvn install -Drevision=$REVISION'
             }
         }
     }
