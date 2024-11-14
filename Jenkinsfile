@@ -30,7 +30,7 @@ pipeline {
 
         stage('Publish Locally') {
             steps {
-                bat 'mvn install'
+                bat 'mvn install -DskipTests'
             }
         }
     }
