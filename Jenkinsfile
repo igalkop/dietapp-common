@@ -2,14 +2,20 @@ pipeline {
     agent any
 
     environment {
-            REVISION = VersionNumber (versionNumberString: "${BUILD_NUMBER}")
-        }
+        // Define a custom revision using the Jenkins BUILD_NUMBER
+        REVISION = "${BUILD_NUMBER}"
+    }
 
     stages {
         stage('Build') {
             steps {
-                bat 'mvn clean compile -Drevision=$REVISION'
-                bat 'echo ${REVISION}'
+                // Update the revision property in pom.xml
+                script {
+                    bat "mvn versions:set-property -Dproperty=revision -DnewVersion=${REVISION}"
+                }
+
+                bat 'mvn clean install -Drevision=$REVISION'
+//                 bat 'echo ${REVISION}'
             }
         }
 
