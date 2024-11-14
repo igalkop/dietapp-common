@@ -41,5 +41,11 @@ pipeline {
                 }
             }
         }
+
+        stage('Publish to Github Packages') {
+            steps {
+                bat 'mvn deploy -DskipTests'
+            }
+        }
     }
 }
