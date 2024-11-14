@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-            REVISION = versionNumberString: "${BUILD_NUMBER}"
+            REVISION = VersionNumber (versionNumberString: "${BUILD_NUMBER}")
         }
 
     stages {
